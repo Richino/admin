@@ -1,0 +1,33 @@
+.wrapper {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #c4cdd54d;
+    border-radius: 10px;
+    color: #454f5b;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 1 / span 3;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 14px;
+    
+}
+
+.title {
+    background-color: #f9fafb;
+    border: 1px solid rgba(196, 205, 213, 0.3019607843);
+    padding: 10px;
+    display: grid;
+    border-radius: 7px;
+    border: 1px solid #c4cdd54d;
+    align-items: center;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+}
+
+.label{
+    input{
+        margin-right: 20px;
+    }
+}

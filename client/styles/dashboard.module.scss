@@ -1,0 +1,41 @@
+.wrapper {
+    background-color: #f9fafb;
+    padding: 20px;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scroll-padding: 20px;
+    border: 1px solid #c4cdd54d;
+    border-top-left-radius: 10px;
+}
+
+.header {
+    font-size: 14px;
+    color: #242930;
+    font-weight: 600;
+}
+
+.box {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.loading_container {
+    height: 100%;
+    width: 100%;
+    background-color: #f9fafb;
+    border: 1px solid #c4cdd54d;
+    border-top-left-radius: 10px;
+
+    svg {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
+    }
+}
+

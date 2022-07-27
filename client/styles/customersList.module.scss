@@ -1,0 +1,75 @@
+.wrapper {
+    padding: 15px 10px;
+    display: grid;
+    border-bottom: 1px solid #c4cdd54d;
+    grid-template-columns: auto auto auto auto ;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    overflow: visible;
+}
+
+.label {
+    input {
+        margin-right: 20px;
+    }
+}
+
+.refunded {
+    color: #ffc107;
+}
+
+.paid {
+    color: #34c38f;
+}
+
+.chargeback {
+    color: #ff4842;
+}
+
+.kebab {
+    display: grid;
+    place-items: center;
+    padding: 5px;
+    margin-top: -7px;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: #f9fafb;
+        //background-color: blue;
+        cursor: pointer;
+    }
+}
+
+.dropdown {
+    overflow: visible;
+    max-height: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.dropdown_content {
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 20px 24px;
+    border: 1px solid #c4cdd54d;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: grid;
+    z-index: 2;
+    border-radius: 10px;
+
+    div {
+        padding: 10px 20px;
+        &:hover {
+            cursor: pointer;
+            background-color: #f9fafb;
+        }
+    }
+}
+
+.last{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

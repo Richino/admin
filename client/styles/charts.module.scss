@@ -1,0 +1,113 @@
+.wrapper {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #c4cdd54d;
+    border-radius: 10px;
+    color: #454f5b;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 1 / span 2;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 14px;
+}
+
+.top {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+}
+
+.text {
+    font-size: 14px;
+    color: #672cff;
+    font-weight: 600;
+    width: 100%;
+}
+
+.right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.buttonText {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.buttonTextOpen {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.content {
+    display: none;
+}
+.contentOpen {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+
+    div {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.dropdown_content {
+    margin-top: -10px;
+    background-color: white;
+    //box-shadow: rgba(149, 157, 165, 0.2) 0px 20px 24px;
+    border: 1px solid #c4cdd54d;
+    display: grid;
+    z-index: 2;
+    border-radius: 5px;
+    position: absolute;
+    overflow: hidden;
+    width: 140px;
+
+    button {
+        outline: none;
+        border: none;
+        background-color: white;
+        padding: 15px 30px;
+        display: grid;
+        place-items: center;
+        width: 140px;
+        &:hover {
+            cursor: pointer;
+            background-color: #f9fafb;
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+}
+
+.content2 {
+    right: 160px;
+}
+
+.content3 {
+    right: 320px;
+}
+
+.shadow {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 20px 24px;
+    border-radius: 5px;
+}
