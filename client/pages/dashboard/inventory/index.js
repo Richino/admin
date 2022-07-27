@@ -1,13 +1,11 @@
 import styles from "../../../styles/inventory.module.scss";
 import InventoryList from "./components/inventoryList";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
     MdOutlineKeyboardArrowLeft,
     MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 import axios from "axios";
-import { Triangle } from "react-loader-spinner";
-import Router from "next/router";
 
 const api = axios.create({
     baseURL: "http://localhost:3001",

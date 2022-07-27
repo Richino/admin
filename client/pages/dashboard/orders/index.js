@@ -1,43 +1,20 @@
 import styles from "../../../styles/orders.module.scss";
 import TransactionList from "./components/transactionList";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
     MdOutlineKeyboardArrowLeft,
     MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 import axios from "axios";
-import { Triangle } from "react-loader-spinner";
-import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import { load } from "../../../store/loadingSlice";
 const api = axios.create({
     baseURL: "http://localhost:3001",
 });
 
 export default function Orders({ api_result, number }) {
-    const router = useRouter();
     const [data, setData] = useState(api_result);
     const [checked, setChecked] = useState(false);
     const [numbers, setNumbers] = useState(number);
-    const [update, setUpdate] = useState();
     const [previousNum, setPreviousNum] = useState();
-
-    
-
-    const post = () => {
-        api.post("/order/list", { data: numbers });
-    };
-
-    const get = () => {
-        api.get("/order").then((res) => {
-            setData(res.data);
-        });
-        api.get("/order/count").then((res) => {
-            let array = [...numbers];
-            array[2] = res.data;
-            setNumbers(array);
-        });
-    };
 
     const right = async () => {
         let array = [];
@@ -133,8 +110,6 @@ export default function Orders({ api_result, number }) {
         </div>
     );
 }
-
-
 
 export async function getStaticProps() {
     var number = 0;

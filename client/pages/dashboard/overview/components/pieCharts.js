@@ -11,8 +11,6 @@ export default function ChartPie() {
     const [isOpen, setOpen] = useState(false);
     const ref = useRef();
     const [colors, setColors] = useState(["#672CFF", "#FFC107", "#FF4842"]);
-    const [text, setText] = useState(["Weekly", "Monthly", "Yearly"]);
-
     useEffect(() => {
         const clickOutside = (e) => {
             let path = e.path || (e.composedPath && e.composedPath());
@@ -26,16 +24,6 @@ export default function ChartPie() {
             document.removeEventListener("mousedown", clickOutside);
         };
     }, [isOpen]);
-
-    const click = (e) => {
-        let array = text;
-        let temp = array[0];
-        let num = array.indexOf(e);
-        array[0] = e;
-        array[num] = temp;
-        setText(array);
-        setOpen(!isOpen);
-    };
 
     return (
         <div className={styles.wrapper}>
