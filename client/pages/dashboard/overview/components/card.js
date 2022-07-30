@@ -7,14 +7,8 @@ export default function Card(props) {
                 <span className={styles.header}>{props.header}</span>
                 <span>{props.total}</span>
                 <div>
-                    <span
-                        className={
-                            props.summary >= 0 ? styles.green : styles.red
-                        }
-                    >
-                        {props.summary >= 0
-                            ? `+${props.summary}% `
-                            : `-${props.summary}% `}
+                    <span className={props.summary >= 0 ? styles.green : styles.red}>
+                        {props.summary >= 0 ? `+${props.summary}% ` : `-${props.summary}% `}
                     </span>
                     <span>{props.summary2}</span>
                 </div>

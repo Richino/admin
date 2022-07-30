@@ -11,12 +11,7 @@ export default function List(props) {
 
     useEffect(() => {
         const clickOutside = (e) => {
-            if (
-                isopen &&
-                ref.current &&
-                !ref.current.contains(e.target) &&
-                e.path[2].className !== "customersList_dropdown__gFPBH"
-            ) {
+            if (isopen && ref.current && !ref.current.contains(e.target) && e.path[2].className !== "customersList_dropdown__gFPBH") {
                 setOpen(false);
             }
         };
@@ -30,21 +25,10 @@ export default function List(props) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.label}>
-                <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={() => setChecked(!checked)}
-                />
+                <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                 <div className={styles.item}>
                     <div className={styles.profilePhoto}>
-                        <Image
-                            loading="eager"
-                            layout="fixed"
-                            src={props.image}
-                            height={50}
-                            width={50}
-                            priority
-                        />
+                        <Image loading="eager" layout="fixed" src={props.image} height={50} width={50} priority />
                     </div>
                     <div>
                         <span className={styles.name}>{props.name}</span>
@@ -54,14 +38,9 @@ export default function List(props) {
             </div>
             <div className={styles.total}>{props.email}</div>
             <div className={styles.status_container}>
-                <div className={styles.status}>
-                    {props.status === 0 ? "Offline" : "Online"}
-                </div>
+                <div className={styles.status}>{props.status === 0 ? "Offline" : "Online"}</div>
                 <div className={styles.dropdown}>
-                    <div
-                        className={styles.kebab}
-                        onClick={() => setOpen(!isopen)}
-                    >
+                    <div className={styles.kebab} onClick={() => setOpen(!isopen)}>
                         <GoKebabVertical id={props.id} size={20} />
                     </div>
 

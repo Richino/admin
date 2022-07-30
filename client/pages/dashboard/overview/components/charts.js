@@ -1,12 +1,4 @@
-import {
-    CartesianGrid,
-    XAxis,
-    YAxis,
-    ResponsiveContainer,
-    AreaChart,
-    Area,
-    Tooltip,
-} from "recharts";
+import { CartesianGrid, XAxis, YAxis, ResponsiveContainer, AreaChart, Area, Tooltip } from "recharts";
 import { useEffect, useState, useRef } from "react";
 import styles from "../../../../styles/charts.module.scss";
 
@@ -41,7 +33,6 @@ export default function Chart(props) {
     const [years, setYears] = useState();
     const [getYears, setGetYears] = useState();
     const ref = useRef();
-   
 
     useEffect(() => {
         setYear();
@@ -60,35 +51,9 @@ export default function Chart(props) {
 
     const setYear = () => {
         let data = [];
-        let x = [
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-        ];
+        let x = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 
-        const months = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-        ];
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let year = props.sales.filter((key) => {
             return key.date.slice(0, 4) === "2020";
         });
@@ -134,35 +99,9 @@ export default function Chart(props) {
 
     const yearClick = (e) => {
         let data = [];
-        let x = [
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-        ];
+        let x = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 
-        const months = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-        ];
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let year = props.sales.filter((key) => {
             return key.date.slice(0, 4) === e;
         });
@@ -181,7 +120,6 @@ export default function Chart(props) {
         }
         setData(data);
 
-        
         let filter = getYears.filter((value) => {
             return value != e;
         });
@@ -196,27 +134,14 @@ export default function Chart(props) {
                 <div className={styles.text}>EARNINGS</div>
 
                 <div className={styles.right}>
-                    <div
-                        ref={ref}
-                        className={`dropdown ${styles.dropdown_content} ${
-                            styles.content
-                        } ${isOpen ? styles.shadow : ""}`}
-                    >
-                        <button onClick={() => setOpen(!isOpen)}>
-                            {yearFirstText}
-                        </button>
+                    <div ref={ref} className={`dropdown ${styles.dropdown_content} ${styles.content} ${isOpen ? styles.shadow : ""}`}>
+                        <button onClick={() => setOpen(!isOpen)}>{yearFirstText}</button>
                         {isOpen && (
                             <div className={styles.dw}>
                                 {years.map((key, index) => {
                                     return (
                                         <div key={key}>
-                                            <button
-                                                onClick={() =>
-                                                    yearClick(years[index])
-                                                }
-                                            >
-                                                {years[index]}
-                                            </button>
+                                            <button onClick={() => yearClick(years[index])}>{years[index]}</button>
                                         </div>
                                     );
                                 })}
@@ -229,29 +154,15 @@ export default function Chart(props) {
             <ResponsiveContainer height={400}>
                 <AreaChart data={data}>
                     <defs>
-                        <linearGradient
-                            id="colorUv"
-                            x1="0"
-                            y1="0"
-                            x2="0"
-                            y2="1"
-                        >
-                            <stop
-                                offset="5%"
-                                stopColor="#8884d8"
-                                stopOpacity={0.8}
-                            />
-                            <stop
-                                offset="95%"
-                                stopColor="#8884d8"
-                                stopOpacity={0}
-                            />
+                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
+                            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
                         </linearGradient>
                     </defs>
                     <CartesianGrid stroke="#F0F0F6" />
                     <Area
                         strokeWidth={2}
-                        dot={{ fill: "#672CFF",r:2 }}
+                        dot={{ fill: "#672CFF", r: 2 }}
                         type="monotone"
                         fillOpacity={1}
                         dataKey="sales"

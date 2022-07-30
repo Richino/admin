@@ -22,13 +22,7 @@ export default function Dashboard({ api_result, api_sales }) {
                     summary={5.68}
                     summary2="since last week"
                 />
-                <Card
-                    image={<BsBox size={50} color="#672CFF" />}
-                    header="TOTAL ORDERS"
-                    total="5795"
-                    summary={22.58}
-                    summary2="since last week"
-                />
+                <Card image={<BsBox size={50} color="#672CFF" />} header="TOTAL ORDERS" total="5795" summary={22.58} summary2="since last week" />
                 <Card
                     image={<AiOutlineUsergroupAdd size={50} color="#672CFF" />}
                     header="NEW CUSTOMERS"

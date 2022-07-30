@@ -1,6 +1,6 @@
 import styles from "../../../../styles/transaction.module.scss";
 import TransactionList from "../components/transactionList";
-import { useState} from "react";
+import { useState } from "react";
 
 export default function Transaction(props) {
     const [data, setData] = useState(props.transaction);
@@ -10,11 +10,7 @@ export default function Transaction(props) {
             <div>LATEST TRANSACTION</div>
             <div className={styles.title}>
                 <div className={styles.label}>
-                    <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={() => setChecked(!checked)}
-                    />
+                    <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                     <span>Order ID</span>
                 </div>
                 <div>Billing Name</div>

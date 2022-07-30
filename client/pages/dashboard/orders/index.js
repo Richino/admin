@@ -1,10 +1,7 @@
 import styles from "../../../styles/orders.module.scss";
 import TransactionList from "./components/transactionList";
 import { useState } from "react";
-import {
-    MdOutlineKeyboardArrowLeft,
-    MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
 const api = axios.create({
     baseURL: "http://localhost:3001",
@@ -67,24 +64,14 @@ export default function Orders({ api_result, number }) {
                 <div className={styles.header}>Orders</div>
                 <div>
                     <span>{`${numbers[0]} - ${numbers[1]} of ${numbers[2]}`}</span>
-                    <MdOutlineKeyboardArrowLeft
-                        color="#454f5b"
-                        onClick={left}
-                    />
-                    <MdOutlineKeyboardArrowRight
-                        color="#454f5b"
-                        onClick={right}
-                    />
+                    <MdOutlineKeyboardArrowLeft color="#454f5b" onClick={left} />
+                    <MdOutlineKeyboardArrowRight color="#454f5b" onClick={right} />
                 </div>
             </div>
             <div className={styles.wrapper}>
                 <div className={styles.title}>
                     <div className={styles.label}>
-                        <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => setChecked(!checked)}
-                        />
+                        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                         <span>Order ID</span>
                     </div>
                     <div>Billing Name</div>

@@ -1,10 +1,7 @@
 import styles from "../../../styles/team.module.scss";
 import List from "./components/list";
 import { useState } from "react";
-import {
-    MdOutlineKeyboardArrowLeft,
-    MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -17,6 +14,7 @@ export default function Team({ api_result, number }) {
     const [checked, setChecked] = useState(false);
     const [numbers, setNumbers] = useState(number);
     const [previousNum, setPreviousNum] = useState(number);
+    console.log(data);
 
     const right = () => {
         let array = [];
@@ -72,24 +70,14 @@ export default function Team({ api_result, number }) {
                 <div className={styles.header}>Team</div>
                 <div>
                     <span>{`${numbers[0]} - ${numbers[1]} of ${numbers[2]}`}</span>
-                    <MdOutlineKeyboardArrowLeft
-                        color="#454f5b"
-                        onClick={left}
-                    />
-                    <MdOutlineKeyboardArrowRight
-                        color="#454f5b"
-                        onClick={right}
-                    />
+                    <MdOutlineKeyboardArrowLeft color="#454f5b" onClick={left} />
+                    <MdOutlineKeyboardArrowRight color="#454f5b" onClick={right} />
                 </div>
             </div>
             <div className={styles.wrapper}>
                 <div className={styles.title}>
                     <div className={styles.label}>
-                        <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => setChecked(!checked)}
-                        />
+                        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                         <span>Name</span>
                     </div>
                     <div>Email</div>

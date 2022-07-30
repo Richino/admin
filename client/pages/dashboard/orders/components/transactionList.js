@@ -9,50 +9,37 @@ export default function TransactionList(props) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.label}>
-                <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={() => setChecked(!checked)}
-                />
+                <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                 <span>{props.id}</span>
             </div>
             <div>{props.name}</div>
             <div>{props.date}</div>
-            <div>{"$"+ props.total}</div>
+            <div>{"$" + props.total}</div>
             <div
-                className={
-                    props.payment_status === "Paid"
-                        ? styles.paid
-                        : props.payment_status === "Refunded"
-                        ? styles.refunded
-                        : styles.chargeback
-                }
+                className={props.payment_status === "Paid" ? styles.paid : props.payment_status === "Refunded" ? styles.refunded : styles.chargeback}
             >
                 {props.payment_status}
             </div>
             <div>{props.payment_method}</div>
             <div className={styles.dropdown}>
-                    <OutsideClickHandler
-                        onOutsideClick={() => {
-                            setOpen(false);
-                        }}
-                    >
-                        <div
-                            className={styles.kebab}
-                            onClick={() => setOpen(!isopen)}
-                        >
-                            <GoKebabVertical id={props.id} size={20} />
-                        </div>
-                    </OutsideClickHandler>
+                <OutsideClickHandler
+                    onOutsideClick={() => {
+                        setOpen(false);
+                    }}
+                >
+                    <div className={styles.kebab} onClick={() => setOpen(!isopen)}>
+                        <GoKebabVertical id={props.id} size={20} />
+                    </div>
+                </OutsideClickHandler>
 
-                    {isopen && (
-                        <div className={styles.dropdown_content}>
-                            <div>Edit</div>
-                            <div>Refund</div>
-                            <div>Delete</div>
-                        </div>
-                    )}
-                </div>
+                {isopen && (
+                    <div className={styles.dropdown_content}>
+                        <div>Edit</div>
+                        <div>Refund</div>
+                        <div>Delete</div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

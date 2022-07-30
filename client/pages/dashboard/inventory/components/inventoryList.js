@@ -12,11 +12,7 @@ export default function InventoryList(props) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.label}>
-                <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={() => setChecked(!checked)}
-                />
+                <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                 <div className={styles.item}>
                     <Image src={props.image} height={60} width={60} />
                     <div>
@@ -39,11 +35,7 @@ export default function InventoryList(props) {
                     color1={"#c4cdd54d"}
                     edit={false}
                     value={
-                        (props.r1 * 1 +
-                            props.r2 * 2 +
-                            props.r3 * 3 +
-                            props.r4 * 4 +
-                            props.r5 * 5) /
+                        (props.r1 * 1 + props.r2 * 2 + props.r3 * 3 + props.r4 * 4 + props.r5 * 5) /
                         (props.r1 + props.r2 + props.r3 + props.r5 + props.r5)
                     }
                 />
@@ -53,10 +45,7 @@ export default function InventoryList(props) {
                             setOpen(false);
                         }}
                     >
-                        <div
-                            className={styles.kebab}
-                            onClick={() => setOpen(!isopen)}
-                        >
+                        <div className={styles.kebab} onClick={() => setOpen(!isopen)}>
                             <GoKebabVertical id={props.id} size={20} />
                         </div>
                     </OutsideClickHandler>

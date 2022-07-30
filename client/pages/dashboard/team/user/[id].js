@@ -17,12 +17,7 @@ const User = ({ api_result, users }) => {
             <div className={styles.card}>
                 <div className={styles.circle_container}>
                     <div className={styles.photo}>
-                        <Image
-                            priority
-                            height={100}
-                            width={100}
-                            src={data.image}
-                        />
+                        <Image priority height={100} width={100} src={data.image} />
                     </div>
                 </div>
                 <div className={styles.info}>
@@ -36,11 +31,7 @@ const User = ({ api_result, users }) => {
             <div className={styles.list}>
                 <div className={styles.title}>
                     <div className={styles.label}>
-                        <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => setChecked(!checked)}
-                        />
+                        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                         <span>Associates</span>
                     </div>
                     <div>Email</div>

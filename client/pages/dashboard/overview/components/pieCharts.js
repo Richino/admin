@@ -29,22 +29,12 @@ export default function ChartPie() {
         <div className={styles.wrapper}>
             <div className={styles.top}>
                 <div className={styles.text}>ORDER STATUS</div>
-                
             </div>
             <ResponsiveContainer height="100%">
                 <PieChart>
-                    <Pie
-                        dataKey="value"
-                        data={data}
-                        innerRadius={77}
-                        outerRadius={85}
-                        fill="#82ca9d"
-                    >
+                    <Pie dataKey="value" data={data} innerRadius={77} outerRadius={85} fill="#82ca9d">
                         {data.map((entry, index) => (
-                            <Cell
-                                key={`cell-${index}`}
-                                fill={colors[index % colors.length]}
-                            />
+                            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                         ))}
                     </Pie>
                     <Tooltip />

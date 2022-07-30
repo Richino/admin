@@ -9,12 +9,7 @@ export default function CustomerList(props) {
 
     useEffect(() => {
         const clickOutside = (e) => {
-            if (
-                isopen &&
-                ref.current &&
-                !ref.current.contains(e.target) &&
-                e.path[2].className !== "customersList_dropdown__gFPBH"
-            ) {
+            if (isopen && ref.current && !ref.current.contains(e.target) && e.path[2].className !== "customersList_dropdown__gFPBH") {
                 setOpen(false);
             }
         };
@@ -31,11 +26,7 @@ export default function CustomerList(props) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.label}>
-                <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={() => setChecked(!checked)}
-                />
+                <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                 <span>{`${props.first_name} ${props.last_name}`}</span>
             </div>
             <div>{props.phone}</div>
@@ -43,11 +34,7 @@ export default function CustomerList(props) {
             <div className={styles.last}>
                 <div>{props.created}</div>
                 <div className={styles.dropdown}>
-                    <div
-                        className={styles.kebab}
-                        onClick={() => setOpen(!isopen)}
-                        ref={ref}
-                    >
+                    <div className={styles.kebab} onClick={() => setOpen(!isopen)} ref={ref}>
                         <GoKebabVertical id={props.id} size={20} />
                     </div>
 

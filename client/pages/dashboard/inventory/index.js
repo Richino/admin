@@ -1,17 +1,14 @@
 import styles from "../../../styles/inventory.module.scss";
 import InventoryList from "./components/inventoryList";
 import { useState } from "react";
-import {
-    MdOutlineKeyboardArrowLeft,
-    MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
 
 const api = axios.create({
     baseURL: "http://localhost:3001",
 });
 
-export default function Inventory({ api_result, number_result}) {
+export default function Inventory({ api_result, number_result }) {
     const [data, setData] = useState(api_result);
     const [checked, setChecked] = useState(false);
     const [numbers, setNumbers] = useState(number_result);
@@ -69,24 +66,14 @@ export default function Inventory({ api_result, number_result}) {
                 <div className={styles.header}>Inventory</div>
                 <div>
                     <span>{`${numbers[0]} - ${numbers[1]} of ${numbers[2]}`}</span>
-                    <MdOutlineKeyboardArrowLeft
-                        color="#454f5b"
-                        onClick={left}
-                    />
-                    <MdOutlineKeyboardArrowRight
-                        color="#454f5b"
-                        onClick={right}
-                    />
+                    <MdOutlineKeyboardArrowLeft color="#454f5b" onClick={left} />
+                    <MdOutlineKeyboardArrowRight color="#454f5b" onClick={right} />
                 </div>
             </div>
             <div className={styles.wrapper}>
                 <div className={styles.title}>
                     <div className={styles.label}>
-                        <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => setChecked(!checked)}
-                        />
+                        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                         <span>Name</span>
                     </div>
                     <div>Price</div>

@@ -1,10 +1,7 @@
 import styles from "../../../styles/customers.module.scss";
 import CustomerList from "./components/customersList";
 import { useState } from "react";
-import {
-    MdOutlineKeyboardArrowLeft,
-    MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
 
 const api = axios.create({
@@ -68,24 +65,14 @@ export default function Customers({ api_result, number_result }) {
                 <div className={styles.header}>Customers</div>
                 <div>
                     <span>{`${numbers[0]} - ${numbers[1]} of ${numbers[2]}`}</span>
-                    <MdOutlineKeyboardArrowLeft
-                        color="#454f5b"
-                        onClick={left}
-                    />
-                    <MdOutlineKeyboardArrowRight
-                        color="#454f5b"
-                        onClick={right}
-                    />
+                    <MdOutlineKeyboardArrowLeft color="#454f5b" onClick={left} />
+                    <MdOutlineKeyboardArrowRight color="#454f5b" onClick={right} />
                 </div>
             </div>
             <div className={styles.wrapper}>
                 <div className={styles.title}>
                     <div className={styles.label}>
-                        <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => setChecked(!checked)}
-                        />
+                        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                         <span>Name</span>
                     </div>
                     <div>Phone</div>
