@@ -3,6 +3,8 @@ const router = express.Router();
 const db = require("../database");
 let number = 0;
 let total = 0;
+let data = null;
+let aquireData = false;
 
 router.post("/list", (req, res) => {
     number = req.body.data;
@@ -10,27 +12,29 @@ router.post("/list", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-    db.query(
-        `SELECT * FROM show_store.customers ORDER BY id DESC LIMIT ${
-            number[0] - 1
-        },10`,
-        (err, result) => {
+    if (aquireData) {
+        res.json(data);
+    } else {
+        db.query(`SELECT * FROM show_store.customers ORDER BY id DESC`, (err, result) => {
             if (err) {
                 console.log(err);
             }
-            res.json(result);
-        }
-    );
+            data = result;
+            res.json(data);
+            aquireData = true;
+        });
+    }
 });
 
 router.get("/count", (req, res) => {
-    db.query(
-        "SELECT COUNT(*) AS count FROM show_store.customers",
-        (err, result) => {
+    if (total != 0) {
+        res.json(total);
+    } else {
+        db.query("SELECT COUNT(*) AS count FROM show_store.customers", (err, result) => {
             total = result[0].count;
             res.json(total);
-        }
-    );
+        });
+    }
 });
 
 module.exports = router;

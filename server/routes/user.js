@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
-const s3 = require("../amazon")
+const s3 = require("../amazon");
 let total = 0;
+let user = {};
+let userList = null;
 
 router.post("/id", (req, res) => {
     total = req.body.data;
@@ -10,25 +12,18 @@ router.post("/id", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-    db.query(
-        `SELECT * FROM show_store.team_leaders where id = ${total}`,
-        (err, result) => {
-            const url = s3.getSignedUrl("getObject", {
-                Bucket: "shoe-store-application",
-                Key: result[0].location,
-                Expires: 500,
-            });
-            const data = {
-                id: result[0].id,
-                name: result[0].name,
-                position: result[0].position,
-                image: url,
-                status: result[0].status,
-                email: result[0].email,
-            };
-            res.json(data);
-        }
-    );
+    db.query(`SELECT * FROM show_store.team_leaders where id = ${total}`, (err, result) => {
+        const data = {
+            id: result[0].id,
+            name: result[0].name,
+            position: result[0].position,
+            image: result[0].location,
+            status: result[0].status,
+            email: result[0].email,
+        };
+        user = data;
+        res.json(user);
+    });
 });
 
 router.get("/list", (req, res) => {
@@ -40,22 +35,11 @@ router.get("/list", (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                result.map((key, index) => {
-                    const url = s3.getSignedUrl("getObject", {
-                        Bucket: "shoe-store-application",
-                        Key: result[index].location,
-                        Expires: 500,
-                    });
-
-                    result[index].href = url;
-                    delete result[index].location;
-                    delete result[index].team_id;
-                });
-
-                res.json(result);
+                userList = result;
+                res.json(userList);
             }
         }
     );
 });
 
-module.exports = router
+module.exports = router;
