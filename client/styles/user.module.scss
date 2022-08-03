@@ -10,10 +10,8 @@
     //box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     background-color: #f9fafb;
     height: 100%;
-    border-top-left-radius: 10px;
-    border: 1px solid #c4cdd54d;
     align-items: center;
-    overflow-y: scroll;
+    
 }
 
 .card{
@@ -104,3 +102,23 @@
     width: 50px;
     display: block;
 }
+
+
+@media only screen and (max-width: 1151px) {
+    .title {
+        display: none;
+    }
+
+    .list{
+        width: 100%;
+        
+    }
+
+    .wrapper{
+        overflow-y: scroll;
+    }
+}
+
+
+
+

@@ -5,30 +5,6 @@ import styles from "../../../../styles/charts.module.scss";
 export default function Chart(props) {
     const [data, setData] = useState(props.sales);
     const [isOpen, setOpen] = useState(false);
-    const [isOpen2, setOpen2] = useState(false);
-    const [isOpen3, setOpen3] = useState(false);
-    const [months, setMonths] = useState([
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ]);
-    const [week, setWeekText] = useState(() => {
-        let array = [];
-        for (let i = 0; i < 4; i++) {
-            array.push(`Week ${i + 1}`);
-        }
-        array.shift();
-        return array;
-    });
-
     const [yearFirstText, setYearFirstText] = useState();
     const [years, setYears] = useState();
     const [getYears, setGetYears] = useState();
@@ -44,6 +20,7 @@ export default function Chart(props) {
         };
 
         document.addEventListener("mousedown", clickOutside);
+
         return () => {
             document.removeEventListener("mousedown", clickOutside);
         };
@@ -52,7 +29,6 @@ export default function Chart(props) {
     const setYear = () => {
         let data = [];
         let x = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
-
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let year = props.sales.filter((key) => {
             return key.date.slice(0, 4) === "2020";
@@ -100,7 +76,6 @@ export default function Chart(props) {
     const yearClick = (e) => {
         let data = [];
         let x = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
-
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let year = props.sales.filter((key) => {
             return key.date.slice(0, 4) === e;
@@ -151,7 +126,7 @@ export default function Chart(props) {
                 </div>
             </div>
 
-            <ResponsiveContainer height={400}>
+            <ResponsiveContainer height={300}>
                 <AreaChart data={data}>
                     <defs>
                         <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -171,7 +146,7 @@ export default function Chart(props) {
                     />
                     <XAxis
                         style={{
-                            fontSize: "14px",
+                            fontSize: "12px",
                         }}
                         dataKey="months"
                         axisLine={false}
@@ -179,7 +154,7 @@ export default function Chart(props) {
                     />
                     <YAxis
                         style={{
-                            fontSize: "14px",
+                            fontSize: "12px",
                         }}
                         dataKey="sales"
                         axisLine={false}

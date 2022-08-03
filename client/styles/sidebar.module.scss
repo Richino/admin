@@ -1,9 +1,9 @@
 .wrapper {
     width: 290px;
     height: 100vh;
-    //border-right: 1px solid #c4cdd54d;
+    border-right: 1px solid #c4cdd54d;
     padding: 30px;
-    color: green
+    background-color: white;
 }
 
 .profile {
@@ -33,7 +33,7 @@
 }
 
 .name {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     color: #242930;
 }
@@ -72,22 +72,19 @@
     }
 }
 
-
-
 .button {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
 
-    &:hover{
-        background-color: rgba(103, 44, 255,.05);
+    &:hover {
+        background-color: rgba(103, 44, 255, 0.05);
         cursor: pointer;
         color: #672cff;
-        .buttonText{
+        .buttonText {
             color: #672cff;
         }
-        
     }
 
     .containerFocus {
@@ -98,30 +95,23 @@
         display: inline-flex;
         gap: 10px;
         color: #672cff;
-    
     }
-
-    
-
 }
-
-
 
 .button_focus {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgba(103, 44, 255,.05);
+    background-color: rgba(103, 44, 255, 0.05);
     margin-bottom: 5px;
 
-    &:hover{
-        background-color: rgba(103, 44, 255,.05);
+    &:hover {
+        background-color: rgba(103, 44, 255, 0.05);
         cursor: pointer;
         color: #672cff;
-        .buttonText{
+        .buttonText {
             color: #672cff;
         }
-        
     }
 
     .containerFocus {
@@ -132,11 +122,7 @@
         display: inline-flex;
         gap: 10px;
         color: #672cff;
-    
     }
-
-    
-
 }
 
 .buttonText {
@@ -145,4 +131,30 @@
         color: "#672CFF";
         cursor: pointer;
     }
+}
+
+.wrapper_responsive {
+
+    width: 290px;
+    height: 100vh;
+    border-right: 1px solid #c4cdd54d;
+    padding: 30px;
+    background-color: white;
+    margin-left: 0px;
+    width: 220px;
+    position: fixed;
+    z-index: 3;
+    overflow-y: scroll;
+}
+
+@media only screen and (max-width: 900px) {
+    .wrapper {
+        margin-left: -290px;
+        
+    }
+
+    .sidebar{
+        overflow-y: scroll;
+    }
+    
 }

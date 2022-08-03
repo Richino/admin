@@ -111,3 +111,25 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 20px 24px;
     border-radius: 5px;
 }
+
+.chart{
+    height: 400px;
+}
+
+
+@media only screen and (max-width: 1368px) {
+    .wrapper {
+        padding: 20px;
+        background-color: white;
+        border: 1px solid #c4cdd54d;
+        border-radius: 10px;
+        color: #454f5b;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        grid-column: 1 / span 3;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        font-size: 14px;
+    }
+}
+

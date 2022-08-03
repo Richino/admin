@@ -2,7 +2,7 @@
     padding: 15px 10px;
     display: grid;
     border-bottom: 1px solid #c4cdd54d;
-    grid-template-columns: auto auto auto auto ;
+    grid-template-columns: auto auto auto auto;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: center;
     overflow: visible;
@@ -49,6 +49,10 @@
     align-items: flex-end;
 }
 
+.dropdown2 {
+    display: none;
+}
+
 .dropdown_content {
     background-color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 20px 24px;
@@ -68,8 +72,64 @@
     }
 }
 
-.last{
+.last {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+@media only screen and (max-width: 1160px) {
+    .wrapper {
+        grid-template-columns: repeat(6, minmax(0, 16%));
+    }
+}
+
+@media only screen and (max-width: 1151px) {
+    .wrapper {
+        box-shadow: none;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-areas:
+            "name name name"
+            "email email method"
+            "phone  phone method"
+            "created created created";
+        gap: 10px;
+    }
+
+    .label {
+        grid-area: name;
+    }
+    .email {
+        grid-area: email;
+    }
+
+    .phone {
+        grid-area: phone;
+    }
+    .last {
+        grid-area: created;
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+    .dropdown2 {
+        display: block;
+        align-items: center;
+        max-height: 20px;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        overflow: visible;
+        .kebab {
+            float: right;
+        }
+    }
+
+    .label {
+        input {
+            display: none;
+        }
+    }
 }

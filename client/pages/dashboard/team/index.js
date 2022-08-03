@@ -89,7 +89,7 @@ export default function Team({ api_result, number }) {
                             key={index}
                             id={data[index].id}
                             name={data[index].name}
-                            image={data[index].href}
+                            image={data[index].location}
                             position={data[index].position}
                             email={data[index].email}
                             status={data[index].status}

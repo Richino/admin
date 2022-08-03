@@ -42,7 +42,7 @@ const User = ({ api_result, users }) => {
                         <List
                             key={index}
                             name={user[index].name}
-                            image={user[index].href}
+                            image={user[index].location}
                             position={user[index].position}
                             email={user[index].email}
                             status={user[index].status}

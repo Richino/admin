@@ -2,12 +2,10 @@
     padding: 15px;
     display: grid;
     border-bottom: 1px solid #c4cdd54d;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     align-items: center;
     overflow: visible;
-    font-size: 14px;
-    
+    font-size: 12px;
 }
 
 .label {
@@ -27,7 +25,6 @@
 .chargeback {
     color: #ff4842;
 }
-
 
 .kebab {
     display: grid;
@@ -50,6 +47,7 @@
     flex-direction: column;
     gap: 10px;
     align-items: flex-end;
+    max-width: 30px;
 }
 
 .dropdown_content {
@@ -62,12 +60,67 @@
     z-index: 2;
     border-radius: 10px;
 
-    div{
+    div {
         padding: 10px 20px;
-        &:hover{
+        &:hover {
             cursor: pointer;
             background-color: #f9fafb;
         }
     }
-    
+}
+
+.payment_method {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1160px) {
+    .wrapper {
+        grid-template-columns: repeat(6, minmax(0, 16%));
+    }
+}
+
+@media only screen and (max-width: 1151px) {
+    .wrapper {
+
+        box-shadow: none;
+        grid-template-columns: repeat(6, minmax(0, 16%));
+        grid-template-areas:
+            "name name date date x x"
+            "order order date date method method"
+            "total total  date date status status";
+            gap: 10px;
+    }
+
+    .name{
+        grid-area: name;
+    }
+
+    .label{
+        grid-area: order;
+    }
+
+    .total{
+        grid-area: total;
+    }
+
+    .date{
+        grid-area: date;
+    }
+
+    .payment{
+        grid-area: status;
+    }
+
+    .payment_method{
+        grid-area: method;
+        display: flex;
+        gap: 10px;
+    }
+
+    .label {
+        input {
+            display: none;
+        }
+    }
 }

@@ -1,16 +1,13 @@
 .content {
     padding: 20px;
     height: 100%;
-    overflow-y: scroll;
+    
     background-color: #f9fafb;
     display: flex;
     flex-direction: column;
     gap: 20px;
     color: #454f5b;
     font-size: 14px;
-    border: 1px solid #c4cdd54d;
-    border-top-left-radius: 10px;
-
     .right {
         display: flex;
         justify-content: space-between;
@@ -79,6 +76,17 @@
         transform: translate(-50%, -50%);
     }
 }
+
+@media only screen and (max-width: 1151px) {
+    .title {
+        display: none;
+    }
+
+    .wrapper{
+        overflow-y: scroll;
+    }
+}
+
 
 
 

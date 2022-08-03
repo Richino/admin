@@ -10,14 +10,14 @@ export default function InventoryList(props) {
     const [isopen, setOpen] = useState(false);
 
     return (
-        <div className={styles.wrapper}>
+        <div className={`${styles.wrapper} sgshshsh`}>
             <div className={styles.label}>
                 <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                 <div className={styles.item}>
-                    <Image src={props.image} height={60} width={60} />
-                    <div>
+                    <Image src={props.image} height={50} width={50} />
+                    <div className={styles.info}>
                         <span className={styles.name}>{props.name}</span>
-                        <div>{`${props.quantity} in stock`}</div>
+                        <div className={styles.in_stock}>{`${props.quantity} in stock`}</div>
                     </div>
                 </div>
             </div>
@@ -29,6 +29,7 @@ export default function InventoryList(props) {
             <div className={styles.status}>{props.status}</div>
             <div className={styles.rating}>
                 <ReactStars
+                    className={styles.stars}
                     count={5}
                     size={20}
                     color2={"#ffd700"}
@@ -52,8 +53,8 @@ export default function InventoryList(props) {
 
                     {isopen && (
                         <div className={styles.dropdown_content}>
+                            <div>View</div>
                             <div>Edit</div>
-                            <div>Archive</div>
                             <div>Delete</div>
                         </div>
                     )}

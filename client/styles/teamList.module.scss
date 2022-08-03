@@ -28,7 +28,6 @@
     overflow: hidden;
     height: 50px;
     width: 50px;
-    display: block;
 }
 
 .label {
@@ -123,4 +122,58 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+@media only screen and (max-width: 1151px) {
+    .image_container {
+        img {
+            border-radius: 5px;
+        }
+    }
+
+    .title {
+        display: none;
+    }
+
+    .content {
+        overflow-y: scroll;
+    }
+    .wrapper {
+        grid-template-columns: 85% 15%;
+        gap: 10px;
+    }
+
+    .label {
+        input {
+            display: none;
+        }
+    }
+
+    .dropdown {
+        align-items: center;
+        max-height: 30px;
+        max-width: 30px;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        overflow: visible;
+        .kebab {
+            float: right;
+        }
+    }
+
+    .status_container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .total {
+        display: none;
+    }
 }

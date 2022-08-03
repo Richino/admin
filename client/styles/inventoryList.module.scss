@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 25% 15% 20% 20% 20%;
     //grid-template-columns: repeat(5, 1fr);
-    font-size: 14px;
+    font-size: 12px;
     border-bottom: 1px solid #c4cdd54d;
     overflow: visible;
 
@@ -29,15 +29,9 @@
     }
 
     .item {
-        display: flex;
+        display: grid;
+        grid-template-columns: 50px 100px;
         gap: 20px;
-
-        div {
-            display: flex;
-            gap: 10px;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
     }
 }
 
@@ -95,16 +89,76 @@
     z-index: 2;
     border-radius: 10px;
 
-    div{
+    div {
         padding: 10px 20px;
-        &:hover{
+        &:hover {
             cursor: pointer;
             background-color: #f9fafb;
         }
     }
-    
 }
 
 .hide {
     display: none;
+}
+
+
+@media only screen and (max-width: 1151px) {
+    .item {
+        img {
+            border-radius: 5px;
+        }
+    }
+
+    .content {
+        overflow-y: scroll;
+    }
+    .wrapper {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+            "item status "
+            "sales sales ";
+        gap: 10px;
+    }
+
+    .total {
+        display: none;
+    }
+
+    .label {
+        img{
+            max-width: 50px;
+        }
+        input {
+            display: none;
+        }
+    }
+
+    .updated {
+        display: none;
+    }
+
+    .status {
+        display: none;
+    }
+
+    .rating {
+        display: flex;
+        justify-content: flex-end;
+        .stars {
+            display: none;
+        }
+    }
+
+    .item {
+        .info {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 10px;
+        }
+    }
 }

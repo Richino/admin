@@ -20,7 +20,7 @@
 
         .header {
             font-weight: 600;
-            color: #672CFF;
+            color: #672cff;
         }
     }
     div:nth-child(2) {
@@ -29,14 +29,53 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-
     }
 }
 
 .green {
-    color: #672CFF;
+    color: #672cff;
 }
 
 .red {
     color: rgb(255, 72, 66);
 }
+
+@media only screen and (max-width: 1009px) {
+    .wrapper{
+        div:nth-child(1) {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+            width: 100%;
+    
+            .header {
+                font-weight: 600;
+                color: #672cff;
+            }
+        }
+        div:nth-child(2) {
+            height: 100%;
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1009px) {
+    .wrapper{
+        grid-column: 1 / span 3;
+
+        div:nth-child(2) {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+

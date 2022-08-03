@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import loadingState from "./loadingSlice";
+import openState from "./openSlice";
 
 export const store = configureStore({
-    reducer: { loading: loadingState },
+    reducer: { opening: openState },
 });

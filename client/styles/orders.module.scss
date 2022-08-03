@@ -1,16 +1,12 @@
 .content {
     padding: 20px;
     height: 100%;
-    overflow-y: scroll;
     background-color: #f9fafb;
     display: flex;
     flex-direction: column;
     gap: 20px;
     color: #454f5b;
     font-size: 14px;
-    border: 1px solid #c4cdd54d;
-    border-top-left-radius: 10px;
-    
 
     .right {
         display: flex;
@@ -35,7 +31,6 @@
 .wrapper {
     padding: 20px;
     background-color: white;
-    //border: 1px solid #c4cdd54d;
     color: #454f5b;
     display: flex;
     flex-direction: column;
@@ -58,8 +53,7 @@
     border-radius: 7px;
     border: 1px solid #c4cdd54d;
     align-items: center;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .label {
@@ -79,7 +73,70 @@
         position: fixed;
         top: 50%;
         left: 50%;
-        /* bring your own prefixes */
         transform: translate(-50%, -50%);
+    }
+}
+
+@media only screen and (max-width: 1160px) {
+    .wrapper {
+        overflow-x: scroll;
+    }
+
+    .title {
+        grid-template-columns: repeat(6, minmax(0, 16%));
+    }
+}
+
+@media only screen and (max-width: 1151px) {
+    .content {
+        overflow-y: scroll;
+    }
+    .wrapper {
+        grid-template-columns: repeat(6, minmax(0, 16%));
+        grid-template-areas:
+            "name name name name name name"
+            "order order order order method method"
+            "total total  date date status status";
+        gap: 10px;
+    }
+
+    .responsive {
+        min-width: none;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .name {
+        grid-area: name;
+    }
+
+    .label {
+        grid-area: order;
+    }
+
+    .total {
+        grid-area: total;
+    }
+
+    .date {
+        grid-area: date;
+    }
+
+    .payment {
+        grid-area: status;
+    }
+
+    .payment_method {
+        grid-area: method;
+        display: flex;
+        gap: 10px;
+    }
+
+    .label {
+        input {
+            display: none;
+        }
     }
 }

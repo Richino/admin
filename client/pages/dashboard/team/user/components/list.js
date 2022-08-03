@@ -46,17 +46,7 @@ export default function List(props) {
 
                     {isopen && (
                         <div className={styles.dropdown_content}>
-                            <Link
-                                as={`/dashboard/team/user/${props.id}`}
-                                href={{
-                                    pathname: "/dashboard/team/user/[id]",
-                                    query: {
-                                        id: props.id,
-                                    },
-                                }}
-                            >
-                                <div>View</div>
-                            </Link>
+                            <div>View</div>
 
                             <div>Actions</div>
                         </div>
