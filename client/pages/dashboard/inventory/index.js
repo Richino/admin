@@ -115,7 +115,7 @@ export default function Inventory({ api_result, number_result }) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     let number = 0;
     let result = 0;
     await api.post("/inventory/list", { data: [1, 5, null] });

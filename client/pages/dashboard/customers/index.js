@@ -1,6 +1,6 @@
 import styles from "../../../styles/customers.module.scss";
 import CustomerList from "./components/customersList";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
 
@@ -11,9 +11,9 @@ const api = axios.create({
 export default function Customers({ api_result, number_result }) {
     const [data, setData] = useState(api_result);
     const [checked, setChecked] = useState(false);
-    const [numbers, setNumbers] = useState([1,10]);
+    const [numbers, setNumbers] = useState([1, 10]);
     const [total, setTotal] = useState(number_result);
-    const [previousNum, setPreviousNum] = useState([1,10]);
+    const [previousNum, setPreviousNum] = useState([1, 10]);
 
     useEffect(() => {
         let result = api_result.filter((key, index) => {

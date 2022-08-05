@@ -107,7 +107,7 @@ export default function Team({ api_result, number }) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     var number = 0;
     var result = 0;
     await api.get("/team").then((res) => {

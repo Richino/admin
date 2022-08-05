@@ -12,7 +12,6 @@ const api = axios.create({
 });
 
 export default function Dashboard({ api_result, api_sales }) {
-    const [data,setData] = useState(api_result)
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>Overview</div>
@@ -34,15 +33,15 @@ export default function Dashboard({ api_result, api_sales }) {
                 />
                 <Chart sales={api_sales} />
                 <ChartPie />
-                <Transaction transaction={data} />
+                <Transaction transaction={api_result} />
             </div>
         </div>
     );
 }
 
-export async function getStaticProps() {
-    let result = 0;
-    let sales = 0;
+export async function getServerSideProps() {
+    let result = null;
+    let sales = null;
     await api.get("/overview/transactions").then((res) => {
         result = res.data;
     });
