@@ -7,8 +7,7 @@
     gap: 20px;
     color: #454f5b;
     font-size: 12px;
-    
-
+    overflow: hidden;
 
     .right {
         display: flex;
@@ -33,7 +32,6 @@
 .wrapper {
     padding: 20px;
     background-color: white;
-    //border: 1px solid #c4cdd54d;
     color: #454f5b;
     display: flex;
     flex-direction: column;
@@ -89,17 +87,13 @@
 
 @media only screen and (max-width: 1151px) {
     .wrapper {
-        box-shadow: none;
-        border: none;
-        min-width: none;
-        overflow: scroll;;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        overflow-x: scroll;
     }
 
-    .arrows{
+    .arrows {
         font-size: 14px;
         gap: 10px;
-        svg{
+        svg {
             transform: scale(2);
         }
     }
@@ -110,10 +104,14 @@
 }
 
 @media only screen and (max-width: 430px) {
-    .arrows{
+
+    .wrapper {
+        overflow-x: scroll;
+    }
+    .arrows {
         font-size: 14px;
         gap: 10px;
-        svg{
+        svg {
             transform: scale(2);
         }
     }
