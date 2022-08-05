@@ -14,6 +14,7 @@
 }
 
 .modal {
+    opacity: 0;
     display: none;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
@@ -23,6 +24,7 @@
 }
 
 .modal_open {
+    opacity: 1;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100%;

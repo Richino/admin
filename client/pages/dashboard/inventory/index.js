@@ -1,5 +1,5 @@
 import styles from "../../../styles/inventory.module.scss";
-import InventoryList from "./components/inventoryList";
+import InventoryList from "../../../src/components/inventory/components/inventoryList";
 import { useState, useEffect } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
@@ -74,7 +74,7 @@ export default function Inventory({ api_result, number_result }) {
             <div className={styles.right}>
                 <div className={styles.header}>Inventory</div>
                 <div>
-                    <span>{`${numbers[0]} - ${numbers[1]} of ${number_result}`}</span>
+                    <span>{`${numbers[0]} - ${numbers[1]} of ${total}`}</span>
                     <MdOutlineKeyboardArrowLeft color="#454f5b" onClick={left} />
                     <MdOutlineKeyboardArrowRight color="#454f5b" onClick={right} />
                 </div>
@@ -118,7 +118,6 @@ export default function Inventory({ api_result, number_result }) {
 export async function getServerSideProps() {
     let number = 0;
     let result = 0;
-    await api.post("/inventory/list", { data: [1, 5, null] });
     await api.get("/inventory").then((res) => {
         result = res.data;
     });

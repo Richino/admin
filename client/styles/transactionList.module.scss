@@ -74,53 +74,79 @@
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 1160px) {
-    .wrapper {
-        grid-template-columns: repeat(6, minmax(0, 16%));
-    }
-}
-
 @media only screen and (max-width: 1151px) {
     .wrapper {
-
         box-shadow: none;
-        grid-template-columns: repeat(6, minmax(0, 16%));
+        padding-left: 0px;
+        padding-right: 0px;
+        grid-template-columns: 45% 10% 42%;
+
         grid-template-areas:
-            "name name date date x x"
-            "order order date date method method"
-            "total total  date date status status";
-            gap: 10px;
+            "name  date method"
+            "order status method"
+            "total x method";
+        gap: 10px;
     }
 
-    .name{
+    .name {
         grid-area: name;
     }
 
-    .label{
+    .label {
         grid-area: order;
     }
 
-    .total{
+    .total {
         grid-area: total;
     }
 
-    .date{
+    .date {
         grid-area: date;
+
+
     }
 
-    .payment{
+    .payment {
         grid-area: status;
+
     }
 
-    .payment_method{
+    .payment_method {
         grid-area: method;
         display: flex;
-        gap: 10px;
+        justify-content: flex-end;
+        gap: 20px;
+
+
+        .payment_text {
+            float: right;
+        }
+
+        .dropdown {
+            width: 50%;
+        }
     }
 
     .label {
         input {
             display: none;
         }
+    }
+}
+
+
+@media only screen and (max-width: 1151px) {
+
+    .wrapper{
+        grid-template-columns: 40% 20% 39%;
+    }
+
+    .payment_method {
+        grid-area: method;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+
+
     }
 }

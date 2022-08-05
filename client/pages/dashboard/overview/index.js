@@ -1,10 +1,10 @@
 import styles from "../../../styles/dashboard.module.scss";
-import Card from "../overview/components/card";
-import Chart from "../overview/components/charts";
+import Card from "../../../src/components/overview/components/card";
+import Chart from "../../../src/components/overview/components/charts";
 import { AiOutlineDollar, AiOutlineUsergroupAdd } from "react-icons/ai";
 import { BsBox } from "react-icons/bs";
-import ChartPie from "../overview/components/pieCharts";
-import Transaction from "./components/transactions";
+import ChartPie from "../../../src/components/overview/components/pieCharts";
+import Transaction from "../../../src/components/overview/components/transactions";
 import axios from "axios";
 import { useState } from "react";
 const api = axios.create({

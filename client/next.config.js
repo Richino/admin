@@ -10,6 +10,15 @@ const nextConfig = {
             "d8g6c3ka3kwgo.cloudfront.net",
         ],
     },
+    async redirects() {
+        return [
+            {
+                source: "/",
+                destination: "/dashboard/overview",
+                permanent: true,
+            },
+        ];
+    },
 };
 
 module.exports = nextConfig;

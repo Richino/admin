@@ -1,4 +1,4 @@
-import styles from "../../../../styles/teamList.module.scss";
+import styles from "../../../../../styles/teamList.module.scss";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { GoKebabVertical } from "react-icons/go";
@@ -11,8 +11,7 @@ export default function List(props) {
 
     useEffect(() => {
         const clickOutside = (e) => {
-            let path = e.path || (e.composedPath && e.composedPath());
-            if (!ref.current.contains(e.target) && path[0].classList[0] !== "dropdown") {
+            if (isopen && ref.current && !ref.current.contains(e.target) && e.path[2].className !== "customersList_dropdown__gFPBH") {
                 setOpen(false);
             }
         };
@@ -29,7 +28,7 @@ export default function List(props) {
                 <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                 <div className={styles.item}>
                     <div className={styles.profilePhoto}>
-                        <Image src={props.image} height={60} width={60} />
+                        <Image layout="fill" src={props.image} height={50} width={50} />
                     </div>
                     <div>
                         <span className={styles.name}>{props.name}</span>
@@ -40,25 +39,14 @@ export default function List(props) {
             <div className={styles.total}>{props.email}</div>
             <div className={styles.status_container}>
                 <div className={styles.status}>{props.status === 0 ? "Offline" : "Online"}</div>
-                <div ref={ref} className={styles.dropdown}>
+                <div className={styles.dropdown}>
                     <div className={styles.kebab} onClick={() => setOpen(!isopen)}>
                         <GoKebabVertical id={props.id} size={20} />
                     </div>
 
                     {isopen && (
-                        <div className={`dropdown ${styles.dropdown_content}`}>
-                            <Link
-                                as={`/dashboard/team/user/${props.id}`}
-                                href={{
-                                    pathname: "/dashboard/team/user/[id]",
-                                    query: {
-                                        id: props.id,
-                                    },
-                                }}
-                            >
-                                <div>View</div>
-                            </Link>
-
+                        <div className={styles.dropdown_content}>
+                            <div>View</div>
                             <div>Actions</div>
                         </div>
                     )}

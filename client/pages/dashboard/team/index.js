@@ -1,5 +1,5 @@
 import styles from "../../../styles/team.module.scss";
-import List from "./components/list";
+import List from "../../../src/components/team/components/list";
 import { useState, useEffect } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";

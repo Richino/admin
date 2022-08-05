@@ -3,7 +3,7 @@
     display: grid;
     //grid-template-columns: 25% 15% 20% 20% 20%;
     grid-template-columns: repeat(3, 1fr);
-    font-size: 14px;
+    font-size: 12px;
     border-bottom: 1px solid #c4cdd54d;
     overflow: visible;
 
@@ -21,13 +21,12 @@
 }
 
 .profilePhoto {
-    img {
-        object-fit: cover;
-    }
-    border-radius: 50%;
-    overflow: hidden;
+    position: relative;
+
     height: 50px;
     width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .label {
@@ -139,7 +138,7 @@
         overflow-y: scroll;
     }
     .wrapper {
-        grid-template-columns: 85% 15%;
+        grid-template-columns: 88% 10%;
         gap: 10px;
     }
 
@@ -175,5 +174,12 @@
 
     .total {
         display: none;
+    }
+}
+
+@media screen and(max-width: 720px) {
+    .wrapper {
+        grid-template-columns: 75% 10%;
+        gap: 10px;
     }
 }

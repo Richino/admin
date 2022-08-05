@@ -1,5 +1,5 @@
 import styles from "../../../styles/orders.module.scss";
-import TransactionList from "./components/transactionList";
+import TransactionList from "../../../src/components/orders/components/transactionList";
 import { useState, useEffect } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";

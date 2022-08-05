@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../../../../styles/user.module.scss";
 import Image from "next/image";
-import List from "./components/list";
+import List from "../../../../src/components/team/user/components/list";
 import axios from "axios";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 const api = axios.create({

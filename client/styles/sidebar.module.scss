@@ -134,7 +134,6 @@
 }
 
 .wrapper_responsive {
-
     width: 290px;
     height: 100vh;
     border-right: 1px solid #c4cdd54d;
@@ -145,16 +144,18 @@
     position: fixed;
     z-index: 3;
     overflow-y: scroll;
+    transition: 0.2s;
 }
 
 @media only screen and (max-width: 900px) {
     .wrapper {
         margin-left: -290px;
-        
+        transition: 0.2s;
+        position: fixed;
+        z-index: 3;
     }
 
-    .sidebar{
+    .sidebar {
         overflow-y: scroll;
     }
-    
 }

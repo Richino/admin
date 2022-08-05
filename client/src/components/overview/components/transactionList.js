@@ -1,5 +1,5 @@
 import styles from "../../../../styles/transactionList.module.scss";
-import { useState,useEffect,useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GoKebabVertical } from "react-icons/go";
 import OutsideClickHandler from "react-outside-click-handler";
 
@@ -8,8 +8,8 @@ export default function TransactionList(props) {
     const [isopen, setOpen] = useState(false);
     const ref = useRef();
     const click = () => {
-        setOpen(false)
-    }
+        setOpen(false);
+    };
     useEffect(() => {
         const clickOutside = (e) => {
             if (!ref.current.contains(e.target)) {
@@ -40,7 +40,7 @@ export default function TransactionList(props) {
                 {props.payment_status}
             </div>
             <div className={styles.payment_method}>
-                <div>{props.payment_method}</div>
+                <div className={styles.payment_text}>{props.payment_method}</div>
                 <div ref={ref} className={styles.dropdown}>
                     <div className={styles.kebab} onClick={() => setOpen(!isopen)}>
                         <GoKebabVertical id={props.id} size={20} />

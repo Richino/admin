@@ -1,5 +1,5 @@
 import styles from "../../../styles/customers.module.scss";
-import CustomerList from "./components/customersList";
+import CustomerList from "../../../src/components/customers/components/customersList";
 import { useState, useEffect } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
