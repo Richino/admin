@@ -5,7 +5,7 @@ import List from "./components/list";
 import axios from "axios";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 const api = axios.create({
-    baseURL: "http://localhost:3001",
+    baseURL: "https://adminapiapp.herokuapp.com/",
 });
 
 const User = ({ api_result, users }) => {

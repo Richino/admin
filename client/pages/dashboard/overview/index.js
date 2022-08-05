@@ -4,13 +4,15 @@ import Chart from "../overview/components/charts";
 import { AiOutlineDollar, AiOutlineUsergroupAdd } from "react-icons/ai";
 import { BsBox } from "react-icons/bs";
 import ChartPie from "../overview/components/pieCharts";
-import Transaction from "../overview/components/transactions";
+import Transaction from "./components/transactions";
 import axios from "axios";
+import { useState } from "react";
 const api = axios.create({
-    baseURL: "http://localhost:3001",
+    baseURL: "https://adminapiapp.herokuapp.com/",
 });
 
 export default function Dashboard({ api_result, api_sales }) {
+    const [data,setData] = useState(api_result)
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>Overview</div>
@@ -32,7 +34,7 @@ export default function Dashboard({ api_result, api_sales }) {
                 />
                 <Chart sales={api_sales} />
                 <ChartPie />
-                <Transaction transaction={api_result} />
+                <Transaction transaction={data} />
             </div>
         </div>
     );
@@ -49,6 +51,6 @@ export async function getStaticProps() {
     });
 
     return {
-        props: { api_result: result, api_sales: sales },
+        props: { api_result: result, api_sales: sales, fallback: false },
     };
 }

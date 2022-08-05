@@ -1,5 +1,5 @@
 import styles from "../../../../styles/transaction.module.scss";
-import TransactionList from "../components/transactionList";
+import TransactionList from "./transactionList";
 import { useState } from "react";
 
 export default function Transaction(props) {

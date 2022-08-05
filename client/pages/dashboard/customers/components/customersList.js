@@ -9,7 +9,8 @@ export default function CustomerList(props) {
 
     useEffect(() => {
         const clickOutside = (e) => {
-            if (isopen && ref.current && !ref.current.contains(e.target) && e.path[2].className !== "customersList_dropdown__gFPBH") {
+            let path = e.path || (e.composedPath && e.composedPath());
+            if (isopen && ref.current && !ref.current.contains(e.target) && path[2].className !== "customersList_dropdown__gFPBH") {
                 setOpen(false);
             }
         };

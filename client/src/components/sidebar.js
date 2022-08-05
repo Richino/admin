@@ -189,8 +189,8 @@ export default function Sidebar() {
         }
 
         const clickOutside = (e) => {
-            console.log()
-            if(ref.current == e.target || e.path[3].classList[1]=== "profile"){
+            let path = e.path || (e.composedPath && e.composedPath());
+            if(ref.current == e.target || path[3].classList[1]=== "profile"){
                
                 dispatch(open(false))
             }

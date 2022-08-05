@@ -5,7 +5,7 @@ import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-i
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:3001",
+    baseURL: "https://adminapiapp.herokuapp.com/",
 });
 
 export default function Inventory({ api_result, number_result }) {
@@ -13,7 +13,7 @@ export default function Inventory({ api_result, number_result }) {
     const [checked, setChecked] = useState(false);
     const [numbers, setNumbers] = useState([1, 5]);
     const [total, setTotal] = useState(number_result);
-    const [previousNum, setPreviousNum] = useState();
+    const [previousNum, setPreviousNum] = useState([1,10]);
 
     useEffect(() => {
         let result = api_result.filter((key, index) => {
