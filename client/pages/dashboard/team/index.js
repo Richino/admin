@@ -74,7 +74,7 @@ export default function Team({ api_result, number }) {
         <div className={styles.content}>
             <div className={styles.right}>
                 <div className={styles.header}>Team</div>
-                <div>
+                <div className={styles.arrows}>
                     <span>{`${numbers[0]} - ${numbers[1]} of ${total}`}</span>
                     <MdOutlineKeyboardArrowLeft color="#454f5b" onClick={left} />
                     <MdOutlineKeyboardArrowRight color="#454f5b" onClick={right} />

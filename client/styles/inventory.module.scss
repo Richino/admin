@@ -86,3 +86,18 @@
         overflow: scroll;
     }
 }
+
+@media only screen and (max-width: 430px) {
+    .arrows{
+        font-size: 14px;
+        gap: 10px;
+        svg{
+            transform: scale(2);
+        }
+    }
+
+    .title {
+        display: none;
+    }
+}
+

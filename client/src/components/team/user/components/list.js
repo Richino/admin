@@ -28,7 +28,7 @@ export default function List(props) {
                 <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                 <div className={styles.item}>
                     <div className={styles.profilePhoto}>
-                        <Image layout="fill" src={props.image} height={50} width={50} />
+                        <Image layout="fill" objectFit="cover" quality={100} src={props.image} />
                     </div>
                     <div>
                         <span className={styles.name}>{props.name}</span>
