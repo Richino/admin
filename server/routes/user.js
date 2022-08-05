@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
-const s3 = require("../amazon");
 let total = 0;
 let user = {};
-let userList = null;
 
 router.post("/id", (req, res) => {
     total = req.body.data;
@@ -13,16 +11,20 @@ router.post("/id", (req, res) => {
 
 router.get("/", (req, res) => {
     db.query(`SELECT * FROM show_store.team_leaders where id = ${total}`, (err, result) => {
-        const data = {
-            id: result[0].id,
-            name: result[0].name,
-            position: result[0].position,
-            image: result[0].location,
-            status: result[0].status,
-            email: result[0].email,
-        };
-        user = data;
-        res.json(user);
+        if (err) {
+            res.json({ error: err.message });
+        } else {
+            const data = {
+                id: result[0].id,
+                name: result[0].name,
+                position: result[0].position,
+                image: result[0].location,
+                status: result[0].status,
+                email: result[0].email,
+            };
+            user = data;
+            res.json(user);
+        }
     });
 });
 
@@ -35,8 +37,7 @@ router.get("/list", (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                userList = result;
-                res.json(userList);
+                res.json(result);
             }
         }
     );

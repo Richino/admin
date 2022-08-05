@@ -1,27 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
-const s3 = require("../amazon");
-
-let number = 0;
-let total = 0;
-let data = null;
-let aquireData = false;
 
 router.get("/", (req, res) => {
-    if (aquireData) {
-        res.json(data);
-    } else {
-        db.query(`SELECT * FROM show_store.inventory ORDER BY id DESC`, (err, result) => {
-            if (err) {
-                console.log(err.message);
-            } else {
-                data = result;
-                res.json(data);
-                aquireData = true;
-            }
-        });
-    }
+    db.query(`SELECT * FROM show_store.inventory ORDER BY id DESC`, (err, result) => {
+        if (err) {
+            res.json({ error: err.message });
+        } else {
+            res.json(result);
+        }
+    });
 });
 
 router.post("/list", (req, res) => {
@@ -31,8 +19,11 @@ router.post("/list", (req, res) => {
 
 router.get("/count", (req, res) => {
     db.query("SELECT COUNT(*) AS count FROM show_store.inventory", (err, result) => {
-        total = result[0].count;
-        res.json(result[0].count);
+        if (err) {
+            res.json(err.message);
+        } else {
+            res.json(result[0].count);
+        }
     });
 });
 
